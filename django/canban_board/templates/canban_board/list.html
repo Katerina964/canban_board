@@ -1,5 +1,4 @@
-<button class=new_button name="plus" value="{{ logout }}" type="submit" >logout</button>
-
+<button><a href="{% url 'canban_board:logout_view' %}">logout</a></button>
 <div>
 {% for each in plan %}
 <h2>{{ each.name}}</h2>

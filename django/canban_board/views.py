@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Card
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def list(request):
     user_id = request.user.id
     plan = Card.objects.filter(state="P", user=user_id)
@@ -16,3 +16,12 @@ def list(request):
 
 def logout_view(request):
     logout(request)
+    return redirect('canban_board:list')
+
+
+def create_card(request):
+    pass
+
+
+def change_card(request):
+    pass
