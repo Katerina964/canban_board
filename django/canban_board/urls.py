@@ -8,7 +8,8 @@ urlpatterns = [
     path('', views.list, name='list'),
     path('logout_view', views.logout_view, name='logout_view'),
     path('create_card', views.create_card, name='create_card'),
-    path('delete_card', views.delete_card, name='delete_card')
+    path('delete_card', views.delete_card, name='delete_card'),
+    path('change_card', views.change_card, name='change_card')
     ]
 
 # if settings.DEBUG:
