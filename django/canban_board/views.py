@@ -29,7 +29,7 @@ def create_card(request):
 def delete_card(request, pk):
     resume = get_object_or_404(Card, pk=pk)
     resume.delete()
-    return redirect('canban_board:cabinet')
+    return redirect('canban_board:list')
 
 
 def change_card(request):
