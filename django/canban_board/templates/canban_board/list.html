@@ -2,17 +2,17 @@
 {% block content %}
 
 <div class="container">
-  <a href="{% url 'canban_board:logout_view' %}"class="btn btn-outline-info btn-sm" style="margin-bottom:-1%;">LOGOUT</a>
+  <p><a href="{% url 'canban_board:logout_view' %}"class="btn btn-outline-info btn-sm">LOGOUT</a></p>
 <div class="row">
 <div class="col-4">
 <h1> TO DO </h1>
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in todo %}
-<div style="border: 3px solid #868e8f20; border-radius: 8px;">
+<div style="border: 3px solid #868e8f20; border-radius: 12px; ">
 <h2>{{ each.name}}</h2>
 <h3>{{ each.description}}</h3>
-<h3>{{ each.start_date|date:"d M y"}}г.</h3>
-<h3>{{ each.end_date|date:"d M y"}}г.</h3>
+<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
+<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
 <a href="{% url 'canban_board:change_card' each.id %}" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="{% url 'canban_board:delete_card' each.id %}" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>
@@ -23,7 +23,7 @@
 <h1> DOING </h1>
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in doing %}
-<div style="border: 3px solid #868e8f20; border-radius: 8px;">
+<div style="border: 3px solid #868e8f20; border-radius: 12px;">
 <h2>{{ each.name}}</h2>
 <h3>{{ each.description}}</h3>
 <h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
@@ -38,11 +38,11 @@
 <h1> DONE </h1>
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in done %}
-<div style="border: 3px solid #868e8f20; border-radius: 8px;">
+<div style="border: 3px solid #868e8f20; border-radius: 12px;">
 <h2>{{ each.name}}</h2>
 <h3>{{ each.description}}</h3>
-<h3>{{ each.start_date|date:"d M y"}}г.</h3>
-<h3>{{ each.end_date|date:"d M y"}}г.</h3>
+<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
+<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
 <a href="{% url 'canban_board:change_card' each.id %}" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="{% url 'canban_board:delete_card' each.id %}" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>
