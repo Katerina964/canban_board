@@ -1,0 +1,13 @@
+{% extends 'canban_board/base.html' %}
+{% block content %}
+
+<div class="container"
+<form action="{% url 'canban_board:create_card' %}" method="POST" >
+  {% csrf_token %}
+       <table>
+          {{ form  }}
+      </table>
+      <button type="submit" class="btn btn-success">Сохранить и опубликовать</button>
+      </form>
+</div>
+{% endblock %}

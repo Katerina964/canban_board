@@ -1,27 +1,39 @@
-<button><a href="{% url 'canban_board:logout_view' %}">logout</a></button>
-<div>
-{% for each in plan %}
+{% extends 'canban_board/base.html' %}
+{% block content %}
+
+<div class="container">
+  <button><a href="{% url 'canban_board:logout_view' %}">logout</a></button>
+<div class="row">
+<div class="col-4">
+<h1> TODO </h1>
+{% for each in todo %}
 <h2>{{ each.name}}</h2>
 <h2>{{ each.description}}</h2>
 <h2>{{ each.start_date}}</h2>
 <h2>{{ each.end_date}}</h2>
 {% endfor %}
+<button><a href="{% url 'canban_board:create_card' %}">add card</a></button>
 </div>
 
-<div>
+<div class="col-4">
+<h1> DOING </h1>
 {% for each in doing %}
 <h2>{{ each.name}}</h2>
 <h2>{{ each.description}}</h2>
 <h2>{{ each.start_date}}</h2>
 <h2>{{ each.end_date}}</h2>
 {% endfor %}
+<button><a href="{% url 'canban_board:create_card' %}">add card</a></button>
 </div>
 
-<div>
+<div class="col-4">
+<h1> DONE </h1>
 {% for each in done %}
 <h2>{{ each.name}}</h2>
 <h2>{{ each.description}}</h2>
 <h2>{{ each.start_date}}</h2>
 <h2>{{ each.end_date}}</h2>
 {% endfor %}
+<button><a href="{% url 'canban_board:create_card' %}">add card</a></button>
 </div>
+{% endblock %}

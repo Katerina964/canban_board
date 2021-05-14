@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Card(models.Model):
-    PLAN = 'P'
+    TODO = 'TD'
     DOING = 'D'
     DONE = 'DN'
-    STATE = [(PLAN, 'PLAN'),
+    STATE = [(TODO, 'TODO'),
              (DOING, 'DOING'),
              (DONE, 'DONE')]
     name = models.CharField(max_length=150)
@@ -16,7 +16,7 @@ class Card(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     state = models.CharField(max_length=2,
                              choices=STATE,
-                             default=PLAN)
+                             default=TODO)
 
     def __str__(self):
         return self.name
