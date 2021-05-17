@@ -21,14 +21,24 @@ def logout_view(request):
 
 
 def create_card(request):
-    form = CardForm()
+    if request.method == "POST":
+        form = CardForm(request.POST)
+        if form.is_valid():
+            card = form.save(commit=False)
+            card.user = request.user
+            card.save()
+            return redirect('canban_board:list')
+        else:
+            print(form.errors)
+    else:
+        form = CardForm()
     context = {'form': form}
     return render(request, 'canban_board/create_card.html', context)
 
 
 def delete_card(request, pk):
-    resume = get_object_or_404(Card, pk=pk)
-    resume.delete()
+    card = get_object_or_404(Card, pk=pk)
+    card.delete()
     return redirect('canban_board:list')
 
 
