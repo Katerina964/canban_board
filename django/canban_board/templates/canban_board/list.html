@@ -28,7 +28,7 @@
 <h3>{{ each.description}}</h3>
 <h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
 <h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
-<a href="{% url 'canban_board:change_card' each.id%}" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
+<a href="{% url 'canban_board:change_card' each.id %}" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="{% url 'canban_board:delete_card' each.id %}" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>
 {% endfor %}

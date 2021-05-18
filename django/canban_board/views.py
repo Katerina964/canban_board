@@ -42,5 +42,13 @@ def delete_card(request, pk):
     return redirect('canban_board:list')
 
 
-def change_card(request):
-    pass
+def change_card(request, pk):
+    card = get_object_or_404(Card, pk=pk)
+    if request.method == "POST":
+        form = CardForm(request.POST, instance=card)
+        form.save()
+        return redirect('canban_board:list')
+    else:
+        form = CardForm(instance=card)
+        context = {"form": form}
+    return render(request, 'canban_board/create_card.html', context)
