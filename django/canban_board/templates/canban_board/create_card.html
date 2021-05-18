@@ -2,12 +2,15 @@
 
 {% block content %}
 <div class="container">
-<div class="create">
+<div class="create mx-lg-auto">
 <form action="{% url 'canban_board:create_card' %}" method="POST">{% csrf_token %}
-       <table>
-          {{ form }}
-      </table>
-     <button type="submit" value="SAVE" style="width:20%; margin-left:7%; margin-top: 1%">Save</button>
+
+          <!-- {{ form.as_p }} -->
+          <table>
+            {{ form }}
+          </table>
+
+     <button type="submit" value="SAVE" class="btn btn-outline-info mx-lg-auto" >Save</button>
 </form>
 </div>
 </div>

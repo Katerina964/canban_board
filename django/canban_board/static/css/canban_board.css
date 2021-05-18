@@ -4,7 +4,8 @@ h3 {font-size: 120%;}
 h1, h2, h3 {padding-top:1%; padding-right: 1%; padding-left: 3%;padding-right: 3%}
 body {font-family: 'Times New Roman', Georgia, Times, sans-serif; }
 a {margin-bottom: 1%;margin-left:1%}
-input,  textarea {width:200%;}
-.create{margin-top: 10%; border: 3px solid #13dfed45; border-radius: 15px; padding: 3%}
-p {margin-left: 94%; margin-bottom: 0%; padding: 3px}
+input,  textarea {width:180%;}
+.create{margin-top: 10%; border: 3px solid #13dfed45; border-radius: 15px; padding-left: 3%; padding-right:3%;
+        padding-top: 3%; padding-bottom: 3%; width:70%;}
+.login {margin-left: 94%; margin-bottom: 0%; padding: 3px}
 /* color: #3f4142 */
