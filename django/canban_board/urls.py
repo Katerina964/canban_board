@@ -5,7 +5,8 @@ from . import views
 
 app_name = 'canban_board'
 urlpatterns = [
-    path('', views.list, name='list'),
+    path('list', views.list, name='list'),
+    path('', views.lending, name='lending'),
     path('logout_view', views.logout_view, name='logout_view'),
     path('delete_card/<int:pk>/', views.delete_card, name='delete_card'),
     path('change_card/<int:pk>/', views.change_card, name='change_card'),

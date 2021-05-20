@@ -5,6 +5,14 @@ from django.contrib.auth import logout
 from .forms import CardForm
 
 
+def lending(request):
+    todo = Card.objects.filter(state="TD", user=1)
+    doing = Card.objects.filter(state="D", user=1)
+    done = Card.objects.filter(state="DN", user=1)
+    context = {'todo': todo, 'doing': doing, 'done': done}
+    return render(request, 'canban_board/lending.html', context)
+
+
 @login_required(login_url='/accounts/login/')
 def list(request):
     user_id = request.user.id
