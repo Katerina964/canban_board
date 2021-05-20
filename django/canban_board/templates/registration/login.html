@@ -1,5 +1,7 @@
-
+{% extends 'canban_board/base.html' %}
 {% block content %}
+<div class="container">
+<div class="create mx-lg-auto">
 
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
@@ -26,10 +28,13 @@
 </tr>
 </table>
 
-<input type="submit" value="login">
+<input type="submit" value="login" style="width:20%; margin-top: 2%; margin-left: 9%; margin-bottom: 2%">
 <input type="hidden" name="next" value="{{ next }}">
 </form>
 
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</div>
+</div>
+
 
 {% endblock %}

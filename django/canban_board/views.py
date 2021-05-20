@@ -46,9 +46,12 @@ def change_card(request, pk):
     card = get_object_or_404(Card, pk=pk)
     if request.method == "POST":
         form = CardForm(request.POST, instance=card)
-        form.save()
-        return redirect('canban_board:list')
+        if form.is_valid():
+            form.save()
+            return redirect('canban_board:list')
+        else:
+            print(form.errors)
     else:
         form = CardForm(instance=card)
-        context = {"form": form}
+    context = {"form": form}
     return render(request, 'canban_board/create_card.html', context)
