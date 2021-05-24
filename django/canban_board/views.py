@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Card
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from .forms import CardForm
+from django.contrib.auth import logout, login
+from .forms import CardForm, UserForm
+from django.contrib.auth.models import User
 
 
 def lending(request):
@@ -26,6 +27,27 @@ def list(request):
 def logout_view(request):
     logout(request)
     return redirect('canban_board:list')
+
+
+def register(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            try:
+                user = User.objects.create_user(username=request.POST["username"], email=request.POST["email"],
+                                                password=request.POST["password"])
+                login(request, user)
+                return redirect('canban_board:list')
+            except Exception:
+                print(form.errors)
+                # raise forms.ValidationError(
+                #     "This username or this email ")
+        else:
+            print(form.errors)
+    else:
+        form = UserForm()
+    context = {'form': form}
+    return render(request, 'canban_board/register.html', context)
 
 
 def create_card(request):
