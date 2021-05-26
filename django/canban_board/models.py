@@ -10,7 +10,7 @@ class Card(models.Model):
     STATE = [(TODO, 'TODO'),
              (DOING, 'DOING'),
              (DONE, 'DONE')]
-    name = models.CharField(max_length=150, blank=True)
+    name = models.CharField(max_length=150, blank=True, verbose_name="Title")
     description = models.TextField(blank=True)
     start_date = models.DateField(default=date.today)
     end_date = models.DateField(default=date.today)

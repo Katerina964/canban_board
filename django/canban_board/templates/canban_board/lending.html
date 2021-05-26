@@ -2,18 +2,11 @@
 {% block content %}
 
 <div class="container">
-
-
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <pre style="font-size: 110%; margin-top: 2px; margin-bottom: 1px">Hi, friends. To use, please, register or login.</pre>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
-<div class="row m-1" style="background-color: #e8e46151; border-radius: 5px;">
-<div class="col-10 pt-3" style="font-size: 120%; color: #422e07dd"><pre>Hi, friends. To use, please, register or login.</pre></div>
-<div class="col-2  pt-2" ><a href="{% url 'canban_board:register' %}" class="btn btn-outline-info ">REGISTER</a>
-<a href=""class="btn btn-outline-info">LOGIN</a></div>
-</div>
+  <div class="row m-1" style="background-color: #e8e46151; border-radius: 5px; height: 2.7em">
+  <div class="col-9 pt-2" style="font-size: 125%; color: #422e07dd"><pre>Use registration to start</pre></div>
+  <div class="col-3 pt-2"><a href="{% url 'canban_board:register' %}" style="margin-left:25%" class="btn btn-outline-info btn-sm "><b>REGISTRATION<b></a>
+  <a href=""class="btn btn-outline-info btn-sm"><b>CONTACT<b></a></div>
+  </div>
 
 <div class="row">
 <div class="col-4">
@@ -22,10 +15,10 @@
 
 {% for each in todo %}
 <div style="border: 3px solid #868e8f20; border-radius: 12px; ">
-<h2>{{ each.name}}</h2>
-<h3>{{ each.description}}</h3>
-<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
-<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
+<h2>{{ each.name|linebreaks}}</h2>
+<h3>{{ each.description|linebreaks}}</h3>
+<h4>start date: {{ each.start_date|date:"d M y"}}г.</h4>
+<h4>end date : {{ each.end_date|date:"d M y"}}г.</h4>
 <a href="" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>
@@ -37,10 +30,10 @@
 <a href="" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in doing %}
 <div style="border: 3px solid #868e8f20; border-radius: 12px;">
-<h2>{{ each.name}}</h2>
-<h3>{{ each.description}}</h3>
-<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
-<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
+<h2>{{ each.name|linebreaks}}</h2>
+<h3>{{ each.description|linebreaks}}</h3>
+<h4>start date: {{ each.start_date|date:"d M y"}}г.</h4>
+<h4>end date : {{ each.end_date|date:"d M y"}}г.</h4>
 <a href="" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>
@@ -52,10 +45,10 @@
 <a href="" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in done %}
 <div style="border: 3px solid #868e8f20; border-radius: 12px;">
-<h2>{{ each.name}}</h2>
-<h3>{{ each.description}}</h3>
-<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
-<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
+<h2>{{ each.name|linebreaks}}</h2>
+<h3>{{ each.description|linebreaks}}</h3>
+<h4>start date: {{ each.start_date|date:"d M y"}}г.</h4>
+<h4>end date : {{ each.end_date|date:"d M y"}}г.</h4>
 <a href="" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>

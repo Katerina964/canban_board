@@ -1,18 +1,22 @@
 {% extends 'canban_board/base.html' %}
 {% block content %}
 
-<div class="container">
-  <p class="login"><a href="{% url 'canban_board:logout_view' %}"class="btn btn-outline-info btn-sm">LOGOUT</a></p>
+<div class="container ml-0">
+  <div class="row m-1" style="background-color: #e8e46151; border-radius: 5px; height: 2.5em">
+  <div class="col-9 pt-2" style="font-size: 120%; color: #422e07dd"><pre>Use logout to exit</pre></div>
+  <div class="col-3 pt-1"><a href="{% url 'canban_board:logout_view' %}" style="margin-left:44%" class="btn btn-outline-info btn-sm">LOGOUT</a>
+  <a href=""class="btn btn-outline-info btn-sm">CONTACT</a></div>
+  </div>
 <div class="row">
 <div class="col-4">
 <h1> TO DO </h1>
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in todo %}
 <div style="border: 3px solid #868e8f20; border-radius: 12px; ">
-<h2>{{ each.name}}</h2>
-<h3>{{ each.description}}</h3>
-<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
-<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
+<h2>{{ each.name|linebreaks|truncatechars:1000 }}</h2>
+<h3>{{ each.description|linebreaks|truncatechars:1000 }}</h3>
+<h4>start date: {{ each.start_date|date:"d M y"}}г.</h4>
+<h4>end date : {{ each.end_date|date:"d M y"}}г.</h4>
 <a href="{% url 'canban_board:change_card' each.id %}" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="{% url 'canban_board:delete_card' each.id %}" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>
@@ -24,10 +28,10 @@
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in doing %}
 <div style="border: 3px solid #868e8f20; border-radius: 12px;">
-<h2>{{ each.name}}</h2>
-<h3>{{ each.description}}</h3>
-<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
-<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
+<h2>{{ each.name|linebreaks|truncatechars:1000 }}</h2>
+<h3>{{ each.description|linebreaks|truncatechars:1000 }}</h3>
+<h4>start date: {{ each.start_date|date:"d M y"}}г.</h4>
+<h4>end date : {{ each.end_date|date:"d M y"}}г.</h4>
 <a href="{% url 'canban_board:change_card' each.id %}" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="{% url 'canban_board:delete_card' each.id %}" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>
@@ -39,10 +43,10 @@
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in done %}
 <div style="border: 3px solid #868e8f20; border-radius: 12px;">
-<h2>{{ each.name}}</h2>
-<h3>{{ each.description}}</h3>
-<h3>start date: {{ each.start_date|date:"d M y"}}г.</h3>
-<h3>end date : {{ each.end_date|date:"d M y"}}г.</h3>
+<h2>{{ each.name|linebreaks }}</h2>
+<h3>{{ each.description|linebreaks }}</h3>
+<h4>start date: {{ each.start_date|date:"d M y"}}г.</h4>
+<h4>end date : {{ each.end_date|date:"d M y"}}г.</h4>
 <a href="{% url 'canban_board:change_card' each.id %}" class="btn btn-outline-info btn-sm">CHANGE CARD</a>
 <a href="{% url 'canban_board:delete_card' each.id %}" class="btn btn-outline-info btn-sm">DELETE CARD</a>
 </div>

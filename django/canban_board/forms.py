@@ -8,14 +8,10 @@ from django.contrib.auth.models import User
 
 def check_user(value):
     users = User.objects.only("username")
-    print(users)
     for each in users:
-        print(type(each))
-        print(type(value))
         if value == str(each):
-            print("in")
             raise ValidationError(
-                _('%(value)s is already registered. Try others'),
+                _('%(value)s is already registered. Try others names.'),
                 params={'value': value})
 
 
