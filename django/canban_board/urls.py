@@ -12,6 +12,7 @@ urlpatterns = [
     path('change_card/<int:pk>/', views.change_card, name='change_card'),
     path('register', views.register, name='register'),
     path('create_card', views.create_card, name='create_card'),
+    path('contact', views.contact, name='contact'),
     ]
 
 # if settings.DEBUG:

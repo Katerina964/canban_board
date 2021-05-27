@@ -6,10 +6,17 @@ from .forms import CardForm, UserForm
 from django.contrib.auth.models import User
 
 
+def contact(request):
+    return render(request, 'canban_board/contact.html')
+
+
 def lending(request):
-    todo = Card.objects.filter(state="TD", user=1)
-    doing = Card.objects.filter(state="D", user=1)
-    done = Card.objects.filter(state="DN", user=1)
+    if request.user.is_authenticated:
+        return redirect('canban_board:list')
+    else:
+        todo = Card.objects.filter(state="TD", user=1)
+        doing = Card.objects.filter(state="D", user=1)
+        done = Card.objects.filter(state="DN", user=1)
     context = {'todo': todo, 'doing': doing, 'done': done}
     return render(request, 'canban_board/lending.html', context)
 
@@ -40,8 +47,6 @@ def register(request):
                 return redirect('canban_board:list')
             except Exception:
                 print(form.errors)
-                # raise forms.ValidationError(
-                #     "This username or this email ")
         else:
             print(form.errors)
     else:
