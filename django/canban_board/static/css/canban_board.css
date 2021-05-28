@@ -13,3 +13,9 @@ input,  textarea {width:180%;}
 .registor tr td input, textarea {width:180%;}
 .registor+button {margin-left: 14%; margin-top: 1%}
 .registor tr th {color:gray;}
+.navbar-brand{margin-right: 67%}
+nav {height: 50%; margin-top: 1%; margin-bottom: 1%}
+#A {margin-left: 77%;}
+/* #B { padding-right:0%} */
+.col-4{font-size: 130%; color: #422e07dd}
+.col-8{padding-right: 0%}

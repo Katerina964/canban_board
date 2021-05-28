@@ -2,13 +2,13 @@
 {% block content %}
 
 <div class="container ml-0">
-  <div class="row m-1" style="background-color: #e8e46151; border-radius: 5px; height: 2.5em">
-  <div class="col-9 pt-2" style="font-size: 120%; color: #422e07dd"><pre>Use logout to exit</pre></div>
-  <div class="col-3 pt-1"><a href="{% url 'canban_board:logout_view' %}" style="margin-left:37%" class="btn btn-outline-info btn-sm">LOGOUT</a>
-  <a href="{% url 'canban_board:contact' %}"class="btn btn-outline-info btn-sm">CONTACT US</a></div>
+  <div class="row m-1" style=" height: 2.5em">
+  <div class="col-4 pt-2"><pre>Use logout to exit</pre></div>
+  <div class="col-8 pt-1"><a href="{% url 'canban_board:logout_view' %}" id="A" class="btn btn-outline-info btn-sm">LOGOUT</a>
+  <a href="{% url 'canban_board:contact' %}" class="btn btn-outline-info btn-sm">CONTACT US</a></div>
   </div>
 <div class="row">
-<div class="col-4">
+<div class="col-md-4">
 <h1> TO DO </h1>
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in todo %}
@@ -23,7 +23,7 @@
 {% endfor %}
 </div>
 
-<div class="col-4">
+<div class="col-md-4">
 <h1> DOING </h1>
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in doing %}
@@ -38,7 +38,7 @@
 {% endfor %}
 </div>
 
-<div class="col-4">
+<div class="col-md-4">
 <h1> DONE </h1>
 <a href="{% url 'canban_board:create_card' %}" class="btn btn-outline-info btn-sm">ADD CARD</a>
 {% for each in done %}
