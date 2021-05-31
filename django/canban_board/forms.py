@@ -21,6 +21,11 @@ class CardForm(forms.ModelForm):
         model = Card
         fields = ('name', 'description', 'start_date', 'end_date',
                   'state')
+        error_messages = {
+            'start_date': {
+                'invalid': _("Enter in the format 2021-05-18")},
+            'end_date': {
+                'invalid': _("Enter in the format 2021-05-18")}}
 
 
 class UserForm(forms.Form):

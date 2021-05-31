@@ -2,16 +2,10 @@
 {% block content %}
 
 <div class="container">
-  <nav class="navigation navbar navbar-expand-lg navbar-light" style="background-color:#e8e46151">
-      <a class="navbar-brand" href="">Use Sign Up or Login to start</a>
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button> -->
-  <!-- <div class="row m-1" style="background-color: #e8e46151; border-radius: 5px; height: 2.7em">
-  <div class="col-8 pt-2" style="color: #422e07dd"><pre>Use Sign Up or Login to start</pre></div> -->
-  <a href="{% url 'canban_board:register' %}" class="btn btn-outline-info btn-sm ">SIGN UP</a>
-  <a href="{% url 'login' %}"class="btn btn-outline-info btn-sm">LOGIN</a>
+  <nav class="navigation navbar navbar-expand-lg navbar-light" style="background-color:#e8e46151;">
+      <a class="navbar-brand mt-2" href="">Use Sign Up or Login to start</a>
+  <a href="{% url 'canban_board:register' %}" class="btn btn-outline-info btn-sm mt-lg-2 ">SIGN UP</a>
+  <a href="{% url 'login' %}"class="btn btn-outline-info btn-sm mt-lg-2">LOGIN</a>
   </nav>
 
 <div class="row">
