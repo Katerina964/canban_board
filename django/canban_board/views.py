@@ -33,7 +33,7 @@ def list(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('canban_board:list')
+    return redirect('canban_board:lending')
 
 
 def register(request):
@@ -55,6 +55,7 @@ def register(request):
     return render(request, 'canban_board/register.html', context)
 
 
+@login_required(login_url='/accounts/login/')
 def create_card(request):
     if request.method == "POST":
         form = CardForm(request.POST)
@@ -71,12 +72,14 @@ def create_card(request):
     return render(request, 'canban_board/create_card.html', context)
 
 
+@login_required(login_url='/accounts/login/')
 def delete_card(request, pk):
     card = get_object_or_404(Card, pk=pk)
     card.delete()
     return redirect('canban_board:list')
 
 
+@login_required(login_url='/accounts/login/')
 def change_card(request, pk):
     card = get_object_or_404(Card, pk=pk)
     if request.method == "POST":

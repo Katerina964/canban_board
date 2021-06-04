@@ -2,6 +2,7 @@ from django.urls import path
 # from django.conf.urls.static import static
 # from django.conf import settings
 from . import views
+# from django.views.generic import RedirectView
 
 app_name = 'canban_board'
 urlpatterns = [
@@ -13,6 +14,7 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('create_card', views.create_card, name='create_card'),
     path('contact', views.contact, name='contact'),
+    # re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico', permanent=True)),
     ]
 
 # if settings.DEBUG:
