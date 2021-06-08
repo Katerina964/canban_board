@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login
 from .forms import CardForm, UserForm
 from django.contrib.auth.models import User
+from django.views.decorators.cache import cache_control
 
 
 def contact(request):
@@ -21,6 +22,7 @@ def lending(request):
     return render(request, 'canban_board/lending.html', context)
 
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='/accounts/login/')
 def list(request):
     user_id = request.user.id
@@ -55,7 +57,6 @@ def register(request):
     return render(request, 'canban_board/register.html', context)
 
 
-@login_required(login_url='/accounts/login/')
 def create_card(request):
     if request.method == "POST":
         form = CardForm(request.POST)
@@ -72,14 +73,12 @@ def create_card(request):
     return render(request, 'canban_board/create_card.html', context)
 
 
-@login_required(login_url='/accounts/login/')
 def delete_card(request, pk):
     card = get_object_or_404(Card, pk=pk)
     card.delete()
     return redirect('canban_board:list')
 
 
-@login_required(login_url='/accounts/login/')
 def change_card(request, pk):
     card = get_object_or_404(Card, pk=pk)
     if request.method == "POST":
